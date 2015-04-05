@@ -2,4 +2,4 @@ language: csharp
 solution: Sudoku.sln
 script:
   - xbuild /p:Configuration=Release Sudoku.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
+  - mono ./packages/xunit.runner.*/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
