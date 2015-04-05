@@ -9,6 +9,7 @@ namespace Sudoku.Test
         public void ShouldSucceed()
         {
             Assert.True(true);
+            Assert.Null(null);
         }
     }
 }
