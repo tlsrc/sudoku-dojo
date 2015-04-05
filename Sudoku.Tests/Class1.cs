@@ -1,14 +1,12 @@
 ﻿using Xunit;
 
-namespace Sudoku.Test
+namespace Sudoku.Tests
 {
     public class Class1
     {
-
         [Fact]
         public void ShouldSucceed()
         {
-            Assert.True(true);
             Assert.Null(null);
         }
     }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Sudoku.Test")]
+[assembly: AssemblyTitle("Sudoku.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sudoku.Test")]
+[assembly: AssemblyProduct("Sudoku.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("83ce3998-62a3-4381-8591-8e4afdbdf7b9")]
+[assembly: Guid("a6d8f102-0b03-4f47-8aac-2c84f50135b3")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
