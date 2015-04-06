@@ -1,11 +1,5 @@
 language: csharp
 solution: Sudoku.sln
-#script:
-#  - xbuild /p:Configuration=Release Sudoku.sln
-#  - mono ./packages/xunit.runner.*/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
-install:
-  - nuget restore Sudoku.sln
-  - nuget install xunit.runner.console -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release Sudoku.sln
-  - mono ./testrunner/xunit.runner.console.1.9.2/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
+  - mono ./packages/xunit.runner.*/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
