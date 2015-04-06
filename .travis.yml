@@ -1,5 +1,0 @@
-language: csharp
-solution: Sudoku.sln
-script:
-  - xbuild /p:Configuration=Release Sudoku.sln
-  - mono ./packages/xunit.runner.*/tools/xunit.console.exe ./Sudoku.Tests/bin/Release/Sudoku.Tests.dll
