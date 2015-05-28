@@ -13,9 +13,9 @@ End Class
 
 Public Class Coordinates
 
-    Sub New(p1 As Integer, p2 As Integer)
-        X = p1
-        Y = p2
+    Sub New(ligne As Integer, colonne As Integer)
+        X = ligne
+        Y = colonne
     End Sub
 
     Public Property X As Integer

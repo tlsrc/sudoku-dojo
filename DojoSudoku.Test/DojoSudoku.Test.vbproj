@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Coordinates.vb" />
-    <Compile Include="Sudokuv2.vb" />
+    <Compile Include="Sudoku.vb" />
     <Compile Include="TestMatrice.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -1,18 +1,7 @@
 ﻿<TestClass()> Public Class TestSudoku
 
-    <TestMethod()> Public Sub GetSetValue()
+    <TestMethod> Public Sub GetSetValue()
         Dim sudoku As New Sudoku
-
-
-        sudoku.SetValue(1, 1, 9)
-        sudoku.SetValue(1, 2, 6)
-
-        Assert.AreEqual(sudoku.GetValue(1, 1), 9)
-        Assert.AreEqual(sudoku.GetValue(1, 2), 6)
-    End Sub
-
-    <TestMethod> Public Sub GetSetValueV2()
-        Dim sudoku As New Sudokuv2
         sudoku.SetValue(New Coordinates(1, 1), 9)
         sudoku.SetValue(New Coordinates(1, 2), 6)
 
@@ -20,39 +9,51 @@
         Assert.AreEqual(sudoku.GetValue(New Coordinates(1, 2)), 6)
     End Sub
 
+    <TestMethod> Public Sub EstCeQueLigneValide()
+        Dim sudoku As New Sudoku
+        sudoku.SetValue(New Coordinates(1, 1), 1)
+        sudoku.SetValue(New Coordinates(1, 2), 2)
+        sudoku.SetValue(New Coordinates(1, 3), 3)
+        sudoku.SetValue(New Coordinates(1, 4), 4)
+        sudoku.SetValue(New Coordinates(1, 5), 5)
+        sudoku.SetValue(New Coordinates(1, 6), 6)
+        sudoku.SetValue(New Coordinates(1, 7), 7)
+        sudoku.SetValue(New Coordinates(1, 8), 8)
+        sudoku.SetValue(New Coordinates(1, 9), 9)
 
-    Public Class Sudoku
-        Private _grille As New List(Of List(Of Integer))
+        Assert.IsTrue(sudoku.isLineValid(1))
 
-        Public Sub New()
-            For index = 0 To 8
-                Dim list = New List(Of Integer)()
-                For index2 = 0 To 8
-                    list.Add(0)
-                Next
-                _grille.Add(list)
-            Next
-        End Sub
+    End Sub
 
-        Public Sub SetValue(ByVal ligne As Integer, ByVal col As Integer, ByVal val As Integer)
-            _grille(ligne - 1)(col - 1) = val
-        End Sub
+    <TestMethod> Public Sub EstCeQueLigneInvalid()
+        Dim sudoku As New Sudoku
 
-        Public Function GetValue(ByVal ligne As Integer, ByVal col As Integer) As Integer
-            Return _grille(ligne - 1)(col - 1)
-        End Function
+        sudoku.SetValue(New Coordinates(1, 1), 1)
+        sudoku.SetValue(New Coordinates(1, 2), 1)
+        sudoku.SetValue(New Coordinates(1, 3), 1)
+        sudoku.SetValue(New Coordinates(1, 4), 1)
+        sudoku.SetValue(New Coordinates(1, 5), 1)
+        sudoku.SetValue(New Coordinates(1, 6), 1)
+        sudoku.SetValue(New Coordinates(1, 7), 1)
+        sudoku.SetValue(New Coordinates(1, 8), 1)
+        sudoku.SetValue(New Coordinates(1, 9), 1)
 
-        Public Overrides Function Equals(obj As Object) As Boolean
-            If Object.ReferenceEquals(obj, Me) Then
-                Return True
-            End If
-            Dim otherSudoku As Sudoku = DirectCast(obj, Sudoku)
-            Return True
-        End Function
+        Assert.IsFalse(sudoku.isLineValid(1))
+    End Sub
 
-        Public Overrides Function GetHashCode() As Integer
-            Return 1
-        End Function
+    <TestMethod> Public Sub EstCeQueLigneValideAvecColonnesIncompletes()
+        Dim sudoku As New Sudoku
+        Dim numeroLigne As Integer = 1
+        sudoku.SetValue(New Coordinates(numeroLigne, 1), 1)
+        sudoku.SetValue(New Coordinates(numeroLigne, 2), 2)
+        sudoku.SetValue(New Coordinates(numeroLigne, 3), 3)
+        sudoku.SetValue(New Coordinates(numeroLigne, 6), 6)
+        sudoku.SetValue(New Coordinates(numeroLigne, 7), 7)
+        sudoku.SetValue(New Coordinates(numeroLigne, 8), 8)
+        sudoku.SetValue(New Coordinates(numeroLigne, 9), 9)
 
-    End Class
+        Assert.IsTrue(sudoku.IsLineValid(numeroLigne))
+
+    End Sub
+
 End Class
