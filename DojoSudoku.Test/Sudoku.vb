@@ -4,8 +4,10 @@ Public Class Sudoku
     Private Const _maxValue As Integer = 9
     Private ReadOnly _grille As New Dictionary(Of Coordinates, Integer)
 
+
     Public Sub New()
         InitializeGrille()
+
     End Sub
 
     Private Sub InitializeGrille()
@@ -26,28 +28,35 @@ Public Class Sudoku
     End Function
 
     Public Function IsLineValid(numeroLigne As Integer) As Boolean
-        Dim valeursDeLaLigne As List(Of Integer) = GetLigne(numeroLigne)
+        Dim ligne As Ligne = GetLigne(numeroLigne)
+        Return ligne.EstValide()
+    End Function
 
-        For valeur As Integer = 1 To _maxValue
-            If CompterOccurence(valeursDeLaLigne, valeur) > 1 Then
-                Return False
-            End If
-        Next
-
-        Return True
+    Function EstColonneValide(numeroColonne As Integer) As Boolean
+        Dim colonne As Ligne = GetColonne(numeroColonne)
+        Return colonne.EstValide
     End Function
 
     Private Function CompterOccurence(ByVal valeursDeLaLigne As List(Of Integer), ByVal valeur As Integer) As Integer
-
         Return valeursDeLaLigne.Where(Function(x) x = valeur).Count
     End Function
 
-    Private Function GetLigne(ByVal numeroLigne As Integer) As List(Of Integer)
-        Dim valeursDeLaLigne As New List(Of Integer)
+    Private Function GetLigne(ByVal numeroLigne As Integer) As ligne
+        Dim ligne As New Ligne
         For colonne As Integer = 1 To _maxValue
             Dim coordinate As New Coordinates(numeroLigne, colonne)
-            valeursDeLaLigne.Add(GetValue(coordinate))
+            ligne.InitialiserValeur(GetValue(coordinate))
         Next
-        Return valeursDeLaLigne
+        Return ligne
     End Function
+
+    Private Function GetColonne(numeroColonne As Integer) As Ligne
+        Dim colonne As New Ligne
+        For ligne As Integer = 1 To _maxValue
+            Dim coordinate As New Coordinates(ligne, numeroColonne)
+            colonne.InitialiserValeur(GetValue(coordinate))
+        Next
+        Return colonne
+    End Function
+
 End Class

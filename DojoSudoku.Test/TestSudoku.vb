@@ -56,4 +56,39 @@
 
     End Sub
 
+    <TestMethod> Public Sub EstCeQueColonneValide()
+        Dim sudoku As New Sudoku
+        Dim numeroColonne As Integer = 1
+        sudoku.SetValue(New Coordinates(1, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(2, numeroColonne), 2)
+        sudoku.SetValue(New Coordinates(3, numeroColonne), 3)
+        sudoku.SetValue(New Coordinates(4, numeroColonne), 4)
+        sudoku.SetValue(New Coordinates(5, numeroColonne), 5)
+        sudoku.SetValue(New Coordinates(6, numeroColonne), 6)
+        sudoku.SetValue(New Coordinates(7, numeroColonne), 7)
+        sudoku.SetValue(New Coordinates(8, numeroColonne), 8)
+        sudoku.SetValue(New Coordinates(9, numeroColonne), 9)
+
+        Assert.IsTrue(sudoku.EstColonneValide(numeroColonne))
+
+    End Sub
+
+    <TestMethod> Public Sub EstColonneInvalide()
+        Dim sudoku As New Sudoku
+        Dim numeroColonne As Integer = 1
+        sudoku.SetValue(New Coordinates(1, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(2, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(3, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(4, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(5, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(6, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(7, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(8, numeroColonne), 1)
+        sudoku.SetValue(New Coordinates(9, numeroColonne), 1)
+
+        Assert.IsFalse(sudoku.EstColonneValide(numeroColonne))
+    End Sub
+
+
+
 End Class
